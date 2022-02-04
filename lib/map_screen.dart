@@ -81,10 +81,6 @@ class _MapScreenState extends State<MapScreen> {
           backgroundColor: Theme.of(context).primaryColor,
           foregroundColor: Colors.black,
           onPressed: () => _googleMapController.animateCamera(
-              // _data != null
-              // ?
-              // CameraUpdate.newLatLngBounds(_data.lat, 100.0))
-              // :
               CameraUpdate.newCameraPosition(_initialCameraPosition)),
           child: Icon(Icons.center_focus_strong),
         ));
@@ -113,10 +109,6 @@ class _MapScreenState extends State<MapScreen> {
           position: pos,
         );
       });
-
-      // final locationModel = await HTTPService().getLocation(
-      //     origin: _origin.position, destination: _destination.position);
-      // setState(() => _data = locationModel);
     }
   }
 
