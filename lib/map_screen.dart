@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:location_finder/model/location_model.dart';
 import 'package:location_finder/service/http_service.dart';
 
 class MapScreen extends StatefulWidget {
@@ -18,7 +17,6 @@ class _MapScreenState extends State<MapScreen> {
   GoogleMapController _googleMapController;
   Marker _origin;
   Marker _destination;
-  LocationModel _data;
   bool loading = false;
 
   @override
@@ -105,7 +103,6 @@ class _MapScreenState extends State<MapScreen> {
 
         print("Position: $pos");
         _destination = null;
-        _data = null;
       });
     } else {
       setState(() {

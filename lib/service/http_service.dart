@@ -1,37 +1,12 @@
 import 'dart:convert';
-
-import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:location_finder/model/location_model.dart';
-import 'package:location_finder/.env.dart';
 import 'package:http/http.dart';
 
 class HTTPService {
   static const String _baseUrl = "https://enpuyr7bafpswlw.m.pipedream.net";
-  // final Dio _dio;
-
-  // HTTPService({Dio dio}) : _dio = dio ?? Dio();
-
-  Future getLocation(
-      //   {
-      //   @required LatLng origin,
-      //   @required LatLng destination,
-      // }
-      ) async {
+  Future getLocation() async {
     try {
-      // final response = await _dio.get(_baseUrl, queryParameters: {
-      //   'origin': '${origin.latitude},${origin.longitude},',
-      //   'destination': '${destination.latitude},${destination.longitude},',
-      //   'key': googleAPIKey,
-      // });
       final response = await get(Uri.parse(_baseUrl));
       final json = jsonDecode(response.body);
-      // print("Response: ${response.body}");
-
-      // if (response.statusCode == 200) {
-      //   return LocationModel.fromMap(response.data);
-      // }
       return json;
     } catch (e) {
       print("Error: ${e.toString()}");
